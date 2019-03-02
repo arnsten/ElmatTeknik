@@ -4,6 +4,7 @@ from pyexcel_ods import get_data
 from scipy.interpolate import BSpline
 import helpers as helpers
 
+#
 spreadsheetData = get_data("Lab4-13.ods")
 sheetNames = ["Vänster koppling", "Höger koppling"]
 colors = ["red", "blue"]
