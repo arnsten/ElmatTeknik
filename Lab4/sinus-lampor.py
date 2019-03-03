@@ -8,7 +8,7 @@ T = 1/f
 xp = np.linspace(0, T, 100)
 yp = 230 * np.sin(ω * xp)
 
-
+#
 fig, ax1 = plt.subplots()
 ax1.plot(xp * 1000 ,yp, color='green',linestyle='-')
 ax1.set_xlabel('tid (ms)')
