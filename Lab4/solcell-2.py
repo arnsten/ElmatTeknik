@@ -21,8 +21,8 @@ cs = CubicSpline(Vm, Im)
 xp = np.linspace(np.amin(Vm), np.amax(Vm), 100)
 
 fig, ax1 = plt.subplots()
-ax1.plot(0.05, 22.25, clip_on=False, marker='X', markersize='8', linestyle='none', color='black', label='Isc = 22.3 A')
-ax1.plot(7.58, -0.1, clip_on=False, marker='o', markersize='8', linestyle='none', color='black', label='Voc = 7.58 V')
+ax1.plot(0.11, 22.25, clip_on=False, marker='s', markersize='10', linestyle='none', color='red', label='Isc = 22.3 A')
+ax1.plot(7.58, -0.1, clip_on=False, marker='^', markersize='10', linestyle='none', color='black', label='Voc = 7.58 V')
 
 ax1.plot(
     Vm,
