@@ -20,27 +20,50 @@ data = helpers.getColumnFromSheet(spreadsheetData, sheetName, [0,1]).T
 cs = CubicSpline(Vm, Im)
 xp = np.linspace(np.amin(Vm), np.amax(Vm), 100)
 
-print(Vm)
-plt.plot(
+fig, ax1 = plt.subplots()
+ax1.plot(
     Vm,
     Im,
-    color='black',
+    color='red',
+    marker='.',
+    linestyle='none'
+)
+ax1.plot(
+    xp,
+    cs(xp),
+    color='red',
+    linestyle="dotted",
+)
+ax1.plot(0, 22.25, clip_on=False, marker='H', markersize='12', linestyle='none', color='red', label='Isc = 22.3 A')
+ax1.plot(7.58, 0, clip_on=False, marker='H', markersize='12', linestyle='none', color='blue', label='Voc = 7.58 V')
+ax1.legend(loc='center left')
+ax1.set_xlabel('Spänning (V)')
+ax1.set_ylabel('Ström (A)', color='red')
+ax1.set_xlim(0, 8)
+ax1.set_ylim(0, 24)
+
+Pm = Im*Vm
+ax2 = ax1.twinx()
+ax2.set_ylabel('Effekt (W)', color='blue')
+ax2.set_ylim(0, 200)
+ax2.plot(
+    Vm,
+    Pm,
+    color='blue',
     marker='.',
     linestyle='none',
     label='Mätdata'
 )
-    
-plt.plot(
+cs = CubicSpline(Vm, Pm)
+xp = np.linspace(np.amin(Vm), np.amax(Vm), 100)
+ax2.plot(
     xp,
     cs(xp),
-    color='gray',
+    color='blue',
     linestyle="dotted",
     label='Kubisk spline interpolation'
 )
 
-plt.xlabel('Vm (V)')
-plt.ylabel('Im (A)')
-
 #plt.title("Spänning och ström från solcell med olika motstånd.")
-plt.legend()
+#plt.legend()
 plt.show()
