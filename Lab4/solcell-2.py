@@ -21,6 +21,9 @@ cs = CubicSpline(Vm, Im)
 xp = np.linspace(np.amin(Vm), np.amax(Vm), 100)
 
 fig, ax1 = plt.subplots()
+ax1.plot(0.05, 22.25, clip_on=False, marker='X', markersize='8', linestyle='none', color='black', label='Isc = 22.3 A')
+ax1.plot(7.58, -0.1, clip_on=False, marker='o', markersize='8', linestyle='none', color='black', label='Voc = 7.58 V')
+
 ax1.plot(
     Vm,
     Im,
@@ -32,10 +35,8 @@ ax1.plot(
     xp,
     cs(xp),
     color='red',
-    linestyle="dotted",
+    linestyle="dotted"
 )
-ax1.plot(0, 22.25, clip_on=False, marker='H', markersize='12', linestyle='none', color='red', label='Isc = 22.3 A')
-ax1.plot(7.58, 0, clip_on=False, marker='H', markersize='12', linestyle='none', color='blue', label='Voc = 7.58 V')
 ax1.legend(loc='center left')
 ax1.set_xlabel('Spänning (V)')
 ax1.set_ylabel('Ström (A)', color='red')
