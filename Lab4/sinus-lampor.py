@@ -6,7 +6,7 @@ f = 50
 ω = 2 * math.pi * f
 T = 1/f
 xp = np.linspace(0, T, 100)
-yp = 230 * np.sin(ω * xp)
+yp = 230 * math.sqrt(2) * np.sin(ω * xp)
 
 #
 fig, ax1 = plt.subplots()
